@@ -10,6 +10,7 @@ class Pix implements \JsonSerializable
     private string $chave;
     private string $txid;
     private Valor $valor;
+    private Calendario $calendario;
 
 
     public function setChave($chave): self
@@ -36,6 +37,21 @@ class Pix implements \JsonSerializable
     public function setValor(Valor $valor): self
     {
         $this->valor = $valor;
+        return $this;
+    }
+
+    public function calendario(): Calendario
+    {
+        $calendario = new Calendario();
+
+        $this->setCalendario($calendario);
+
+        return $calendario;
+    }
+    
+    public function setCalendario(Calendario $calendario): self
+    {
+        $this->calendario = $calendario;
         return $this;
     }
 }
