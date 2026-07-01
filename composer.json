@@ -1,5 +1,5 @@
 {
-    "name":"leandroferreirama/api-itau",
+    "name":"gitagencialink-suporte/api-itau",
     "description":"SDK php para integração com a API Itau",
     "minimum-stability":"stable",
     "license":"MIT",
@@ -17,6 +17,10 @@
             "name":"Leandro Ferreira",
             "email":"suporte@integracaosistema.com.br"
         }
+        ,{
+            "name":"Suporte AgenciaLink",
+            "email":"suporte@agencialink.com"
+        }
     ],
-    "homepage":"https://github.com/leandroferreirama/api-itau"
+    "homepage":"https://github.com/gitagencialink-suporte/api-itau"
 }
