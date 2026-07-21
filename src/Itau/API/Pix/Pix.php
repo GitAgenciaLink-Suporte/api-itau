@@ -11,7 +11,7 @@ class Pix implements \JsonSerializable
     private string $txid;
     private Valor $valor;
     private Calendario $calendario;
-
+    private Devedor $devedor;
 
     public function setChave($chave): self
     {
@@ -63,7 +63,6 @@ class Pix implements \JsonSerializable
     }
     
     public function setDevedor(array $dados) {
-        $devedor = new Devedor($dados);
-        $this->devedor = $devedor;
+        $this->devedor = new Devedor($dados);
     }
 }
