@@ -109,6 +109,11 @@ class Request
     {
         return $this->send($credentials, $fullUrl, self::CURL_TYPE_POST, $params);
     }
+    
+    public function put(Itau $credentials, $fullUrl, $params)
+    {
+        return $this->send($credentials, $fullUrl, self::CURL_TYPE_PUT, $params);
+    }
 
     public function patch(Itau $credentials, $fullUrl, $params = null)
     {

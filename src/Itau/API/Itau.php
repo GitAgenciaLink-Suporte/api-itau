@@ -161,8 +161,11 @@ class Itau
             }
 
             $request = new Request($this);
-            $response = $request->post($this, "{$this->getEnvironment()->getApiPixUrl()}/cob", $pix->toJSON());
-           
+            if($pix->calendario()->hasVencimento()) {
+                $response = $request->put($this, "{$this->getEnvironment()->getApiPixUrl()}/cobv/{$pix->getTxid()}", $pix->toJSON());
+            } else {
+                $response = $request->post($this, "{$this->getEnvironment()->getApiPixUrl()}/cob", $pix->toJSON());
+            }
             
             // Add fields do not return in response
             $pixResponse->mapperJson($pix->toArray());

@@ -24,6 +24,11 @@ class Pix implements \JsonSerializable
         $this->txid = $txid;
         return $this;
     }
+    
+    public function getTxid(): string
+    {
+        return $this->txid;
+    }
 
     public function valor(): Valor
     {
@@ -42,16 +47,23 @@ class Pix implements \JsonSerializable
 
     public function calendario(): Calendario
     {
-        $calendario = new Calendario();
+        if(!isset($this->calendario)) {
+            $calendario = new Calendario();
 
-        $this->setCalendario($calendario);
+            $this->setCalendario($calendario);
+        }
 
-        return $calendario;
+        return $this->calendario;
     }
     
     public function setCalendario(Calendario $calendario): self
     {
         $this->calendario = $calendario;
         return $this;
+    }
+    
+    public function setDevedor(array $dados) {
+        $devedor = new Devedor($dados);
+        $this->devedor = $devedor;
     }
 }
