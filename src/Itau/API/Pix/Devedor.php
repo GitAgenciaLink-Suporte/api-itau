@@ -27,10 +27,10 @@ class Devedor implements \JsonSerializable
         $this->nome       = $dados['nome'];
         
         if($dados['tipo_documento'] == 'cpf') {
-            $this->cpf = $dados['documento'];
+            $this->cpf = preg_replace('/[^0-9]/', '', $dados['documento']);
             unset($this->cnpj);
         } else {
-            $this->cnpj = $dados['documento'];
+            $this->cnpj = preg_replace('/[^a-zA-Z0-9]/', '', $dados['documento']);
             unset($this->cpf);
         }
     }
